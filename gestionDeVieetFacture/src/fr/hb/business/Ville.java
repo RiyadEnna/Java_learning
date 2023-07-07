@@ -23,16 +23,19 @@ public class Ville {
 
 // surcharges de constructeurs
 
-    public Ville(String codeInsee, String nom, String codePostal) {
+    public Ville(String nom) {
         this();
-        this.codeInsee = codeInsee;
         this.nom = nom;
-        this.codePostal = codePostal;
     }
 
-    public Ville(String codeInsee, String nom, String codePostal, String complement) {
-        this(codeInsee, nom, codePostal);
-        this.complement = complement;
+    public Ville(String nom, String codePostal) {
+        this(nom);
+        this.codePostal = codePostal;
+    }
+    
+    public Ville(String nom, String codePostal, String codeInsee) {
+        this(nom,codePostal);
+        this.codeInsee = codeInsee;
     }
 
 //Getter et Mutateur

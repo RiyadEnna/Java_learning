@@ -2,31 +2,29 @@ package fr.hb.business;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 
-public abstract class Documents {
+public abstract class Document {
 
 //Attributs
     private LocalDateTime dateDeCreation;
     private Client client;
-    private ArrayList<Lignes> lignes;
+    private List<Ligne> lignes;
 
 //Constructeurs
 // Constructeur par default
 
-    public Documents() {
+    public Document(Client client) {
         super();
         lignes = new ArrayList<>();
         dateDeCreation = LocalDateTime.now();
-    }
-
-    public Documents(Client client) {
-        this();
-        this.client = client;
         client.getDocuments().add(this);
+
     }
 
-    public Documents(LocalDateTime dateDeCreation, Client client) {
+
+    public Document(LocalDateTime dateDeCreation, Client client) {
         this(client);
         this.dateDeCreation = dateDeCreation;
     }
@@ -49,11 +47,11 @@ public abstract class Documents {
         this.client = client;
     }
 
-    public ArrayList<Lignes> getLignes() {
+    public List<Ligne> getLignes() {
         return lignes;
     }
 
-    public void setLignes(ArrayList<Lignes> lignes) {
+    public void setLignes(List<Ligne> lignes) {
         this.lignes = lignes;
     }
 

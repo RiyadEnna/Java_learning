@@ -7,9 +7,9 @@ public class Client {
 	//attributs
 	private Long id;
 	private String nom; 
-	private Long compteur = 0L; 
+	private static Long compteur = 0L; 
 	private Ville ville  = new Ville();
-	private ArrayList<Documents> documents;
+	private List<Document> documents;
 	
 	//constructeur
 	public Client(String nom) {
@@ -18,6 +18,13 @@ public class Client {
 		this.nom = nom;	
 		documents = new ArrayList<>();
 	}
+
+
+	public Client(String nom, Ville ville) {
+		this(nom);
+		this.ville=ville;
+	}
+
 
 	//get set
 	public Long getId() {
@@ -44,14 +51,15 @@ public class Client {
 		this.ville = ville;
 	}
 
-	public ArrayList<Documents> getDocuments() {
+	public List<Document> getDocuments() {
 		return documents;
 	}
 
-	public void setDocuments(ArrayList<Documents> documents) {
+	public void setDocuments(List<Document> documents) {
 		this.documents = documents;
 	}
-
+	
+	//toString
 	@Override
 	public String toString() {
 		return "Client [id=" + id + ", nom=" + nom + ", compteur=" + compteur + ", ville=" + ville + ", documents="
@@ -59,7 +67,7 @@ public class Client {
 	}
 	
 	
-	//toString
+	
 	
 	
 }

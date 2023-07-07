@@ -1,68 +1,78 @@
 package fr.hb.business;
 
-public class Lignes {
-	//attribut
-	public Float quantite;
-	public Float remise;
-    private Documents document;
-	private Article article  = new Article();
-	//constructeur
-	public Lignes(Float quantite, Article article,Documents document) {
-		super();
-		this.quantite = quantite;
-		this.article = article;
-		//lié ligne au documents
-		this.document = document;
-		document.getLignes().add(this)
-	}
-	
-	public Lignes(Float quantite, Article article,Documents document,Float remise) {
-		this(quantite,article,document);
-		this.remise = remise;
-	}
-	
-	//get set
-	public Float getQuantite() {
-		return quantite;
-	}
 
-	public void setQuantite(Float quantite) {
-		this.quantite = quantite;
-	}
+public class Ligne {
+     // attributes
 
-	public Float getRemise() {
-		return remise;
-	}
 
-	public void setRemise(Float remise) {
-		this.remise = remise;
-	}
+    private Document document /* = new Document() */;
+    private Article article = new Article();
+    private float quantite;
+    private Float remise;
 
-	public Documents getDocument() {
-		return document;
-	}
+     // constructors
 
-	public void setDocument(Documents document) {
-		this.document = document;
-	}
+    public Ligne(Document document, Article article,float quantite) {
+        super();
+        this.document = document;
+        this.article = article;
+        this.quantite = quantite;
+        // liaison document et article
+        document.getLignes().add(this);
 
-	public Article getArticle() {
-		return article;
-	}
+    }
 
-	public void setArticle(Article article) {
-		this.article = article;
-	}
+    public Ligne(Document document, Article article,float quantite, Float remise) {
+        this(document,article,quantite);
+        this.remise = remise;
 
-	//to String
+    }
 
+    // getters setters
+
+    public Document getDocument() {
+        return document;
+    }
+
+    public void setDocument(Document document) {
+        this.document = document;
+    }
+
+    public Article getArticle() {
+        return article;
+    }
+
+    public void setArticle(Article article) {
+        this.article = article;
+    }
+
+    public float getQuantite() {
+        return quantite;
+    }
+
+    public void setQuantite(float quantite) {
+        this.quantite = quantite;
+    }
+
+    public Float getRemise() {
+        return remise;
+    }
+
+    public void setRemise(Float remise) {
+        this.remise = remise;
+    }
+
+    // toString
 	@Override
 	public String toString() {
-		return "Lignes [quantite=" + quantite + ", remise=" + remise + ", document=" + document + ", article=" + article
-				+ "]";
+		return "Lignes [article=" + article + ", quantite=" + quantite + ", remise=" + remise + "]";
 	}
 
 
 
-	
+
+
+
+
+
 }

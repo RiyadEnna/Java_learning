@@ -5,7 +5,7 @@ public class Article {
 	private Long id;
 	private String nom;
 	private Float prix;
-	private Long compteur = 0L;
+	private static Long compteur = 0L;
 	//constructeur
     public Article() {
         super();
@@ -19,7 +19,7 @@ public class Article {
         this.nom = nom;
     }
 
-    public Article(Float prix,String nom) {
+    public Article(String nom,Float prix) {
         this(nom);
         this.prix = prix;
     }
